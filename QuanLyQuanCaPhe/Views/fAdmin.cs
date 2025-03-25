@@ -40,6 +40,11 @@ namespace QuanLyQuanCaPhe
             dtpFrom_Date.Value = firstDate;
             dtpTo_Date.Value = lastDate;
 
+            // Thiết lập tooltip cho button reset mật khẩu
+            toolTipResetPassword.SetToolTip(btnReset_PassWord, "Thiết lập password về mật khẩu mặc định: 1");
+            toolTipResetPassword.AutoPopDelay = 5000;
+            toolTipResetPassword.InitialDelay = 500;
+
             LoadDoanhThu(firstDate, lastDate);
 
             LoadAccountList();

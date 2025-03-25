@@ -1,4 +1,6 @@
-﻿using QuanLyQuanCaPhe.Entities.Data;
+﻿using BCrypt.Net;
+using QuanLyQuanCaPhe.Controllers;
+using QuanLyQuanCaPhe.Entities.Data;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,6 +30,9 @@ namespace QuanLyQuanCaPhe
         {
             txbUserName.Text = objAccount.User_Name;
             txbDisplayName.Text = objAccount.Display_Name;
+            txbPassWord.Text = "";
+            txbNew_PassWord.Text = "";
+            txbReType_PassWord.Text = "";
         }
 
         #region Events
@@ -43,15 +48,56 @@ namespace QuanLyQuanCaPhe
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            string strNew_PassWord = txbNew_PassWord.Text;
-            string strReType_PassWord = txbReType_PassWord.Text;
+            string strPassWord = txbPassWord.Text.Trim();
+            string strNew_PassWord = txbNew_PassWord.Text.Trim();
+            string strReType_PassWord = txbReType_PassWord.Text.Trim();
 
-            if (strNew_PassWord == "")
+            Account_Controller objCtrl_Account = new Account_Controller();
+
+            if (strNew_PassWord != "")
             {
                 // Cập nhật Password
+
+                // Kiểm tra mật khẩu hiện tại
+                if (BCrypt.Net.BCrypt.Verify(strPassWord, objAccount.PassWord))
+                {
+                    // Kiểm tra mật khẩu mới và mật khẩu nhập lại
+                    if (strNew_PassWord == strReType_PassWord)
+                    {
+                        objAccount.PassWord = BCrypt.Net.BCrypt.HashPassword(strNew_PassWord);
+                        objCtrl_Account.Update_PassWord_Account_By_Id(objAccount);
+
+                        MessageBox.Show("Đổi mật khẩu thành công !");
+                        LoadData();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Vui lòng nhập lại mật khẩu khớp với mật khẩu mới.");
+                    }
+                } 
+                else
+                {
+                    MessageBox.Show("Sai mật khẩu xác thực!");
+                }
+
+
             } else
             {
-                // Cập nhật tên hiển thị
+                // Cập nhật tên hiển thị dựa theo tên đăng nhập
+
+                // Xác thực mật khẩu trước khi thay đổi
+                if (BCrypt.Net.BCrypt.Verify(strPassWord, objAccount.PassWord))
+                {
+                    objAccount.Display_Name = txbDisplayName.Text;
+                    objCtrl_Account.Update_Display_Name_Account_By_Id(objAccount);
+
+                    MessageBox.Show("Cập nhật tên hiển thị thành công");
+                    LoadData();
+                }
+                else
+                {
+                    MessageBox.Show("Sai mật khẩu xác thực!");
+                }
             }
         }
     }

@@ -14,9 +14,10 @@ namespace QuanLyQuanCaPhe.Entities.Data
         private string passWord;
         private int typeId;
 
-        public int ID
+        public int Id
         {
             get { return id; }
+            set { id = value; }
         }
 
         public string Display_Name

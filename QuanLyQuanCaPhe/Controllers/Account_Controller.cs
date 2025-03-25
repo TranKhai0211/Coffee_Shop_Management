@@ -39,5 +39,29 @@ namespace QuanLyQuanCaPhe.Controllers
             return objAccount;
 
         }
+
+        public void Update_PassWord_Account_By_Id(Account p_objAccount)
+        {
+            try
+            {
+                int intResult = dataProvider.ExcuteNonQuery("sp_upd_PassWord_Account_By_Id", p_objAccount.Id, p_objAccount.PassWord);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public void Update_Display_Name_Account_By_Id(Account p_objAccount)
+        {
+            try
+            {
+                int intResult = dataProvider.ExcuteNonQuery("sp_upd_Display_Name_Account_By_Id", p_objAccount.Id, p_objAccount.Display_Name);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

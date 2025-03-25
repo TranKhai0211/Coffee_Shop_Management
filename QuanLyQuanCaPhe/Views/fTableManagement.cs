@@ -87,8 +87,6 @@ namespace QuanLyQuanCaPhe
         {
             fAccountInfo fai = new fAccountInfo(account);
             fai.ShowDialog();
-
-
         }
 
         private void btnTable_Click(object sender, EventArgs e)

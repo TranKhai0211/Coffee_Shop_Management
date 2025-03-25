@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             tabControl1 = new TabControl();
             tabDoanhThu = new TabPage();
             lstDoanh_thu = new ListView();
@@ -100,7 +101,10 @@
             button13 = new Button();
             tabTaiKhoan = new TabPage();
             panel21 = new Panel();
-            button18 = new Button();
+            panel27 = new Panel();
+            txbPassword = new TextBox();
+            label13 = new Label();
+            btnReset_PassWord = new Button();
             panel22 = new Panel();
             comboBox3 = new ComboBox();
             label10 = new Label();
@@ -117,9 +121,7 @@
             button15 = new Button();
             button16 = new Button();
             btnAdd_Account = new Button();
-            panel27 = new Panel();
-            txbPassword = new TextBox();
-            label13 = new Label();
+            toolTipResetPassword = new ToolTip(components);
             tabControl1.SuspendLayout();
             tabDoanhThu.SuspendLayout();
             panel1.SuspendLayout();
@@ -151,13 +153,13 @@
             panel19.SuspendLayout();
             tabTaiKhoan.SuspendLayout();
             panel21.SuspendLayout();
+            panel27.SuspendLayout();
             panel22.SuspendLayout();
             panel23.SuspendLayout();
             panel24.SuspendLayout();
             panel25.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvListUser).BeginInit();
             panel26.SuspendLayout();
-            panel27.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl1
@@ -802,7 +804,7 @@
             // panel21
             // 
             panel21.Controls.Add(panel27);
-            panel21.Controls.Add(button18);
+            panel21.Controls.Add(btnReset_PassWord);
             panel21.Controls.Add(panel22);
             panel21.Controls.Add(panel23);
             panel21.Controls.Add(panel24);
@@ -811,15 +813,41 @@
             panel21.Size = new Size(329, 360);
             panel21.TabIndex = 12;
             // 
-            // button18
+            // panel27
             // 
-            button18.Location = new Point(233, 229);
-            button18.Name = "button18";
-            button18.Size = new Size(90, 61);
-            button18.TabIndex = 3;
-            button18.Text = "Đặt lại mật khẩu";
-            button18.UseVisualStyleBackColor = true;
-            button18.Click += button18_Click;
+            panel27.Controls.Add(txbPassword);
+            panel27.Controls.Add(label13);
+            panel27.Location = new Point(3, 115);
+            panel27.Name = "panel27";
+            panel27.Size = new Size(323, 50);
+            panel27.TabIndex = 4;
+            // 
+            // txbPassword
+            // 
+            txbPassword.Location = new Point(168, 14);
+            txbPassword.Name = "txbPassword";
+            txbPassword.Size = new Size(142, 27);
+            txbPassword.TabIndex = 1;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label13.Location = new Point(10, 17);
+            label13.Name = "label13";
+            label13.Size = new Size(104, 24);
+            label13.TabIndex = 0;
+            label13.Text = "Mật khẩu:";
+            // 
+            // btnReset_PassWord
+            // 
+            btnReset_PassWord.Location = new Point(236, 229);
+            btnReset_PassWord.Name = "btnReset_PassWord";
+            btnReset_PassWord.Size = new Size(90, 61);
+            btnReset_PassWord.TabIndex = 3;
+            btnReset_PassWord.Text = "Đặt lại mật khẩu";
+            btnReset_PassWord.UseVisualStyleBackColor = true;
+            btnReset_PassWord.Click += button18_Click;
             // 
             // panel22
             // 
@@ -967,32 +995,6 @@
             btnAdd_Account.UseVisualStyleBackColor = true;
             btnAdd_Account.Click += btnAdd_Account_Click;
             // 
-            // panel27
-            // 
-            panel27.Controls.Add(txbPassword);
-            panel27.Controls.Add(label13);
-            panel27.Location = new Point(3, 115);
-            panel27.Name = "panel27";
-            panel27.Size = new Size(323, 50);
-            panel27.TabIndex = 4;
-            // 
-            // txbPassword
-            // 
-            txbPassword.Location = new Point(168, 14);
-            txbPassword.Name = "txbPassword";
-            txbPassword.Size = new Size(142, 27);
-            txbPassword.TabIndex = 1;
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label13.Location = new Point(10, 17);
-            label13.Name = "label13";
-            label13.Size = new Size(104, 24);
-            label13.TabIndex = 0;
-            label13.Text = "Mật khẩu:";
-            // 
             // fAdmin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -1043,6 +1045,8 @@
             panel19.ResumeLayout(false);
             tabTaiKhoan.ResumeLayout(false);
             panel21.ResumeLayout(false);
+            panel27.ResumeLayout(false);
+            panel27.PerformLayout();
             panel22.ResumeLayout(false);
             panel22.PerformLayout();
             panel23.ResumeLayout(false);
@@ -1052,8 +1056,6 @@
             panel25.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dtgvListUser).EndInit();
             panel26.ResumeLayout(false);
-            panel27.ResumeLayout(false);
-            panel27.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -1124,7 +1126,7 @@
         private Button button12;
         private Button button13;
         private Panel panel21;
-        private Button button18;
+        private Button btnReset_PassWord;
         private Panel panel22;
         private ComboBox comboBox3;
         private Label label10;
@@ -1151,5 +1153,6 @@
         private Panel panel27;
         private TextBox txbPassword;
         private Label label13;
+        private ToolTip toolTipResetPassword;
     }
 }

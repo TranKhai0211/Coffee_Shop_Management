@@ -90,5 +90,17 @@ namespace QuanLyQuanCaPhe.Controllers
 
             return arrAccounts;
         }
+
+        public void Update_Account_Type_By_Id(Account p_objAccount)
+        {
+            try
+            {
+                int intResult = dataProvider.ExcuteNonQuery("sp_upd_Account_Type_By_Id", p_objAccount.Id, p_objAccount.Type_Id);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

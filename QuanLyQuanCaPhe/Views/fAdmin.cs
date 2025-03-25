@@ -1,6 +1,7 @@
 ﻿using QuanLyQuanCaPhe.Controllers;
 using QuanLyQuanCaPhe.DAO;
 using QuanLyQuanCaPhe.Entities.Data;
+using QuanLyQuanCaPhe.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -106,6 +107,35 @@ namespace QuanLyQuanCaPhe
                 cbbAccount_Type.SelectedItem = row.Cells["Type"].Value.ToString();
             }
         }
+
+        private void btnReset_PassWord_Click(object sender, EventArgs e)
+        {
+            int intId = Convert.ToInt32(txbId.Text);
+            Reset_PassWord(intId);
+        }
+
+        private void btnUpdate_Account_Click(object sender, EventArgs e)
+        {
+            Account_Controller objCtrlAccount = new Account_Controller();
+
+            int intId = Convert.ToInt32(txbId.Text);
+            Account objAccount = new Account
+            {
+                Id = intId
+            };
+
+            string strType_Text = cbbAccount_Type.SelectedItem.ToString();
+            switch (strType_Text)
+            {
+                case "Admin": objAccount.Type_Id = (int)Account_Type.Admin; break;
+                case "Employee": objAccount.Type_Id = (int)Account_Type.Employee; break;
+            }
+
+            objCtrlAccount.Update_Account_Type_By_Id(objAccount);
+
+            MessageBox.Show("Cập nhật thông tin thành công");
+            Load_Account_List();
+        }
         #endregion
 
 
@@ -144,25 +174,14 @@ namespace QuanLyQuanCaPhe
                 lstDoanh_thu.Items.Add(item);
             }
         }
-        #endregion
-
-        private void button15_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnReset_PassWord_Click(object sender, EventArgs e)
-        {
-            int intId = Convert.ToInt32(txbId.Text);
-            Reset_PassWord(intId);
-        }
 
         public void Reset_PassWord(int p_intId)
         {
             string strDefault_Password = BCrypt.Net.BCrypt.HashPassword("1");
 
             Account_Controller objCtrlAccount = new Account_Controller();
-            Account objAccount = new Account {
+            Account objAccount = new Account
+            {
                 Id = p_intId,
                 PassWord = strDefault_Password,
             };
@@ -171,5 +190,8 @@ namespace QuanLyQuanCaPhe
 
             MessageBox.Show("Đặt lại mật khẩu thành công !");
         }
+        #endregion
+
+        
     }
 }

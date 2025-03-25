@@ -104,6 +104,9 @@
             panel27 = new Panel();
             txbId = new TextBox();
             label13 = new Label();
+            btnAdd_Account = new Button();
+            button16 = new Button();
+            btnUpdate_Account = new Button();
             btnReset_PassWord = new Button();
             panel22 = new Panel();
             cbbAccount_Type = new ComboBox();
@@ -118,9 +121,6 @@
             dtgvListUser = new DataGridView();
             panel26 = new Panel();
             button14 = new Button();
-            button15 = new Button();
-            button16 = new Button();
-            btnAdd_Account = new Button();
             toolTipResetPassword = new ToolTip(components);
             tabControl1.SuspendLayout();
             tabDoanhThu.SuspendLayout();
@@ -806,7 +806,7 @@
             panel21.Controls.Add(panel27);
             panel21.Controls.Add(btnAdd_Account);
             panel21.Controls.Add(button16);
-            panel21.Controls.Add(button15);
+            panel21.Controls.Add(btnUpdate_Account);
             panel21.Controls.Add(btnReset_PassWord);
             panel21.Controls.Add(panel22);
             panel21.Controls.Add(panel23);
@@ -842,6 +842,35 @@
             label13.Size = new Size(34, 24);
             label13.TabIndex = 0;
             label13.Text = "Id:";
+            // 
+            // btnAdd_Account
+            // 
+            btnAdd_Account.Location = new Point(6, 228);
+            btnAdd_Account.Name = "btnAdd_Account";
+            btnAdd_Account.Size = new Size(96, 61);
+            btnAdd_Account.TabIndex = 0;
+            btnAdd_Account.Text = "Thêm";
+            btnAdd_Account.UseVisualStyleBackColor = true;
+            btnAdd_Account.Click += btnAdd_Account_Click;
+            // 
+            // button16
+            // 
+            button16.Location = new Point(6, 295);
+            button16.Name = "button16";
+            button16.Size = new Size(320, 61);
+            button16.TabIndex = 1;
+            button16.Text = "Xoá";
+            button16.UseVisualStyleBackColor = true;
+            // 
+            // btnUpdate_Account
+            // 
+            btnUpdate_Account.Location = new Point(108, 228);
+            btnUpdate_Account.Name = "btnUpdate_Account";
+            btnUpdate_Account.Size = new Size(97, 61);
+            btnUpdate_Account.TabIndex = 2;
+            btnUpdate_Account.Text = "Cập nhật";
+            btnUpdate_Account.UseVisualStyleBackColor = true;
+            btnUpdate_Account.Click += btnUpdate_Account_Click;
             // 
             // btnReset_PassWord
             // 
@@ -969,35 +998,6 @@
             button14.TabIndex = 3;
             button14.Text = "Reload";
             button14.UseVisualStyleBackColor = true;
-            // 
-            // button15
-            // 
-            button15.Location = new Point(108, 228);
-            button15.Name = "button15";
-            button15.Size = new Size(97, 61);
-            button15.TabIndex = 2;
-            button15.Text = "Cập nhật";
-            button15.UseVisualStyleBackColor = true;
-            button15.Click += button15_Click;
-            // 
-            // button16
-            // 
-            button16.Location = new Point(6, 295);
-            button16.Name = "button16";
-            button16.Size = new Size(320, 61);
-            button16.TabIndex = 1;
-            button16.Text = "Xoá";
-            button16.UseVisualStyleBackColor = true;
-            // 
-            // btnAdd_Account
-            // 
-            btnAdd_Account.Location = new Point(6, 228);
-            btnAdd_Account.Name = "btnAdd_Account";
-            btnAdd_Account.Size = new Size(96, 61);
-            btnAdd_Account.TabIndex = 0;
-            btnAdd_Account.Text = "Thêm";
-            btnAdd_Account.UseVisualStyleBackColor = true;
-            btnAdd_Account.Click += btnAdd_Account_Click;
             // 
             // fAdmin
             // 
@@ -1144,7 +1144,7 @@
         private DataGridView dtgvListUser;
         private Panel panel26;
         private Button button14;
-        private Button button15;
+        private Button btnUpdate_Account;
         private Button button16;
         private Button btnAdd_Account;
         private ListView lstDoanh_thu;

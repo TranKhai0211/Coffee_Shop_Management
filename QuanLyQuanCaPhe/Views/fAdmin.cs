@@ -19,10 +19,10 @@ namespace QuanLyQuanCaPhe
         {
             InitializeComponent();
 
-            LoadData();
+            Load_Data();
         }
 
-        public void LoadData()
+        public void Load_Data()
         {
             #region form_Doanh_Thu
 
@@ -40,7 +40,7 @@ namespace QuanLyQuanCaPhe
             dtpFrom_Date.Value = firstDate;
             dtpTo_Date.Value = lastDate;
 
-            LoadDoanhThu(firstDate, lastDate);
+            Load_Doanh_Thu(firstDate, lastDate);
 
             #endregion
 
@@ -59,7 +59,9 @@ namespace QuanLyQuanCaPhe
 
             #region form_Tai_Khoan
 
-            LoadAccountList();
+            // Thiết lập giá trị cho ComboBox Loại tài khoản
+            cbbAccount_Type.Items.Add("Admin");
+            cbbAccount_Type.Items.Add("Employee");
 
             // Thiết lập tooltip cho button reset mật khẩu
             toolTipResetPassword.SetToolTip(btnReset_PassWord, "Thiết lập password về mật khẩu mặc định: 1");
@@ -67,16 +69,7 @@ namespace QuanLyQuanCaPhe
             toolTipResetPassword.InitialDelay = 500;
 
             // List User to dataGridView
-            dtgvListUser.AutoGenerateColumns = false;
-
-            dtgvListUser.Columns.Clear();
-            dtgvListUser.Columns.Add(new DataGridViewTextBoxColumn { Name = "Id", DataPropertyName = "Id", HeaderText = "Id" });
-            dtgvListUser.Columns.Add(new DataGridViewTextBoxColumn { Name = "User_Name", DataPropertyName = "User_Name", HeaderText = "User Name" });
-            dtgvListUser.Columns.Add(new DataGridViewTextBoxColumn { Name = "Display_Name", DataPropertyName = "Display_Name", HeaderText = "Display Name" });
-            dtgvListUser.Columns.Add(new DataGridViewTextBoxColumn { Name = "Type", DataPropertyName = "Type_Text", HeaderText = "Type" });
-
-            Account_Controller objCtrl_Account = new Account_Controller();
-            dtgvListUser.DataSource = objCtrl_Account.List_All_User_Account();
+            Load_Account_List();
 
             #endregion
 
@@ -87,7 +80,7 @@ namespace QuanLyQuanCaPhe
 
         private void btnThongKe_Click(object sender, EventArgs e)
         {
-            LoadDoanhThu(dtpFrom_Date.Value, dtpTo_Date.Value);
+            Load_Doanh_Thu(dtpFrom_Date.Value, dtpTo_Date.Value);
         }
 
         private void btnAdd_Account_Click(object sender, EventArgs e)
@@ -95,16 +88,43 @@ namespace QuanLyQuanCaPhe
 
         }
 
+        private void dtgvListUser_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)                 // Đảm bảo không click vào tiêu đề cột
+            {
+                DataGridViewRow row = dtgvListUser.Rows[e.RowIndex];
+
+                // Lấy thông tin record từ dataGridView
+                int intId = Convert.ToInt32(row.Cells["Id"].Value.ToString());
+                string strUser_Name = row.Cells["User_Name"].Value.ToString();
+                string strDisplay_Name = row.Cells["Display_Name"].Value.ToString();
+
+                // Gán vào các textBox tương ứng
+                txbId.Text = intId.ToString();
+                txbUerName.Text = strUser_Name;
+                txbDisplay_Name.Text = strDisplay_Name;
+                cbbAccount_Type.SelectedItem = row.Cells["Type"].Value.ToString();
+            }
+        }
         #endregion
 
 
         #region Handler Functions
-        public void LoadAccountList()
+        public void Load_Account_List()
         {
+            dtgvListUser.AutoGenerateColumns = false;
 
+            dtgvListUser.Columns.Clear();
+            dtgvListUser.Columns.Add(new DataGridViewTextBoxColumn { Name = "Id", DataPropertyName = "Id", HeaderText = "Id" });
+            dtgvListUser.Columns.Add(new DataGridViewTextBoxColumn { Name = "User_Name", DataPropertyName = "User_Name", HeaderText = "User Name" });
+            dtgvListUser.Columns.Add(new DataGridViewTextBoxColumn { Name = "Display_Name", DataPropertyName = "Display_Name", HeaderText = "Display Name" });
+            dtgvListUser.Columns.Add(new DataGridViewTextBoxColumn { Name = "Type", DataPropertyName = "Type_Text", HeaderText = "Type" });
+
+            Account_Controller objCtrl_Account = new Account_Controller();
+            dtgvListUser.DataSource = objCtrl_Account.List_All_User_Account();
         }
 
-        public void LoadDoanhThu(DateTime p_FromDate, DateTime p_ToDate)
+        public void Load_Doanh_Thu(DateTime p_FromDate, DateTime p_ToDate)
         {
             lstDoanh_thu.Items.Clear();
 
@@ -126,23 +146,5 @@ namespace QuanLyQuanCaPhe
         }
         #endregion
 
-
-        private void dtgvListUser_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)                 // Đảm bảo không click vào tiêu đề cột
-            {
-                DataGridViewRow row = dtgvListUser.Rows[e.RowIndex];
-
-                // Lấy thông tin record từ dataGridView
-                int intId = Convert.ToInt32(row.Cells["Id"].Value.ToString());
-                string strUser_Name = row.Cells["User_Name"].Value.ToString();
-                string strDisplay_Name = row.Cells["Display_Name"].Value.ToString();
-
-                // Gán vào các textBox tương ứng
-                txbId.Text = intId.ToString();
-                txbUerName.Text = strUser_Name;
-                txbDisplay_Name.Text = strDisplay_Name;
-            }
-        }
     }
 }

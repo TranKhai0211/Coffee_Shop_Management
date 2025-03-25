@@ -101,6 +101,9 @@
             button13 = new Button();
             tabTaiKhoan = new TabPage();
             panel21 = new Panel();
+            panel27 = new Panel();
+            txbId = new TextBox();
+            label13 = new Label();
             btnReset_PassWord = new Button();
             panel22 = new Panel();
             cbbAccount_Type = new ComboBox();
@@ -119,9 +122,6 @@
             button16 = new Button();
             btnAdd_Account = new Button();
             toolTipResetPassword = new ToolTip(components);
-            panel27 = new Panel();
-            txbId = new TextBox();
-            label13 = new Label();
             tabControl1.SuspendLayout();
             tabDoanhThu.SuspendLayout();
             panel1.SuspendLayout();
@@ -153,13 +153,13 @@
             panel19.SuspendLayout();
             tabTaiKhoan.SuspendLayout();
             panel21.SuspendLayout();
+            panel27.SuspendLayout();
             panel22.SuspendLayout();
             panel23.SuspendLayout();
             panel24.SuspendLayout();
             panel25.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvListUser).BeginInit();
             panel26.SuspendLayout();
-            panel27.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl1
@@ -804,6 +804,9 @@
             // panel21
             // 
             panel21.Controls.Add(panel27);
+            panel21.Controls.Add(btnAdd_Account);
+            panel21.Controls.Add(button16);
+            panel21.Controls.Add(button15);
             panel21.Controls.Add(btnReset_PassWord);
             panel21.Controls.Add(panel22);
             panel21.Controls.Add(panel23);
@@ -813,6 +816,33 @@
             panel21.Size = new Size(329, 360);
             panel21.TabIndex = 12;
             // 
+            // panel27
+            // 
+            panel27.Controls.Add(txbId);
+            panel27.Controls.Add(label13);
+            panel27.Location = new Point(6, 4);
+            panel27.Name = "panel27";
+            panel27.Size = new Size(323, 50);
+            panel27.TabIndex = 4;
+            // 
+            // txbId
+            // 
+            txbId.Location = new Point(162, 14);
+            txbId.Name = "txbId";
+            txbId.ReadOnly = true;
+            txbId.Size = new Size(158, 27);
+            txbId.TabIndex = 1;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label13.Location = new Point(10, 17);
+            label13.Name = "label13";
+            label13.Size = new Size(34, 24);
+            label13.TabIndex = 0;
+            label13.Text = "Id:";
+            // 
             // btnReset_PassWord
             // 
             btnReset_PassWord.Location = new Point(211, 228);
@@ -821,6 +851,7 @@
             btnReset_PassWord.TabIndex = 3;
             btnReset_PassWord.Text = "Đặt lại mật khẩu";
             btnReset_PassWord.UseVisualStyleBackColor = true;
+            btnReset_PassWord.Click += btnReset_PassWord_Click;
             // 
             // panel22
             // 
@@ -925,9 +956,6 @@
             // panel26
             // 
             panel26.Controls.Add(button14);
-            panel26.Controls.Add(button15);
-            panel26.Controls.Add(button16);
-            panel26.Controls.Add(btnAdd_Account);
             panel26.Location = new Point(6, 6);
             panel26.Name = "panel26";
             panel26.Size = new Size(444, 163);
@@ -935,67 +963,41 @@
             // 
             // button14
             // 
-            button14.Location = new Point(309, 63);
+            button14.Location = new Point(3, 101);
             button14.Name = "button14";
-            button14.Size = new Size(96, 42);
+            button14.Size = new Size(438, 50);
             button14.TabIndex = 3;
-            button14.Text = "Xem";
+            button14.Text = "Reload";
             button14.UseVisualStyleBackColor = true;
             // 
             // button15
             // 
-            button15.Location = new Point(207, 63);
+            button15.Location = new Point(108, 228);
             button15.Name = "button15";
-            button15.Size = new Size(96, 42);
+            button15.Size = new Size(97, 61);
             button15.TabIndex = 2;
-            button15.Text = "Sửa";
+            button15.Text = "Cập nhật";
             button15.UseVisualStyleBackColor = true;
+            button15.Click += button15_Click;
             // 
             // button16
             // 
-            button16.Location = new Point(105, 63);
+            button16.Location = new Point(6, 295);
             button16.Name = "button16";
-            button16.Size = new Size(96, 42);
+            button16.Size = new Size(320, 61);
             button16.TabIndex = 1;
             button16.Text = "Xoá";
             button16.UseVisualStyleBackColor = true;
             // 
             // btnAdd_Account
             // 
-            btnAdd_Account.Location = new Point(3, 63);
+            btnAdd_Account.Location = new Point(6, 228);
             btnAdd_Account.Name = "btnAdd_Account";
-            btnAdd_Account.Size = new Size(96, 42);
+            btnAdd_Account.Size = new Size(96, 61);
             btnAdd_Account.TabIndex = 0;
             btnAdd_Account.Text = "Thêm";
             btnAdd_Account.UseVisualStyleBackColor = true;
             btnAdd_Account.Click += btnAdd_Account_Click;
-            // 
-            // panel27
-            // 
-            panel27.Controls.Add(txbId);
-            panel27.Controls.Add(label13);
-            panel27.Location = new Point(6, 4);
-            panel27.Name = "panel27";
-            panel27.Size = new Size(323, 50);
-            panel27.TabIndex = 4;
-            // 
-            // txbId
-            // 
-            txbId.Location = new Point(162, 14);
-            txbId.Name = "txbId";
-            txbId.ReadOnly = true;
-            txbId.Size = new Size(158, 27);
-            txbId.TabIndex = 1;
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label13.Location = new Point(10, 17);
-            label13.Name = "label13";
-            label13.Size = new Size(34, 24);
-            label13.TabIndex = 0;
-            label13.Text = "Id:";
             // 
             // fAdmin
             // 
@@ -1047,6 +1049,8 @@
             panel19.ResumeLayout(false);
             tabTaiKhoan.ResumeLayout(false);
             panel21.ResumeLayout(false);
+            panel27.ResumeLayout(false);
+            panel27.PerformLayout();
             panel22.ResumeLayout(false);
             panel22.PerformLayout();
             panel23.ResumeLayout(false);
@@ -1056,8 +1060,6 @@
             panel25.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dtgvListUser).EndInit();
             panel26.ResumeLayout(false);
-            panel27.ResumeLayout(false);
-            panel27.PerformLayout();
             ResumeLayout(false);
         }
 

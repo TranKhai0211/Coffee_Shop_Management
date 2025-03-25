@@ -146,5 +146,30 @@ namespace QuanLyQuanCaPhe
         }
         #endregion
 
+        private void button15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnReset_PassWord_Click(object sender, EventArgs e)
+        {
+            int intId = Convert.ToInt32(txbId.Text);
+            Reset_PassWord(intId);
+        }
+
+        public void Reset_PassWord(int p_intId)
+        {
+            string strDefault_Password = BCrypt.Net.BCrypt.HashPassword("1");
+
+            Account_Controller objCtrlAccount = new Account_Controller();
+            Account objAccount = new Account {
+                Id = p_intId,
+                PassWord = strDefault_Password,
+            };
+
+            objCtrlAccount.Update_PassWord_Account_By_Id(objAccount);
+
+            MessageBox.Show("Đặt lại mật khẩu thành công !");
+        }
     }
 }

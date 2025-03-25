@@ -101,18 +101,15 @@
             button13 = new Button();
             tabTaiKhoan = new TabPage();
             panel21 = new Panel();
-            panel27 = new Panel();
-            txbPassword = new TextBox();
-            label13 = new Label();
             btnReset_PassWord = new Button();
             panel22 = new Panel();
-            comboBox3 = new ComboBox();
+            cbbAccount_Type = new ComboBox();
             label10 = new Label();
             panel23 = new Panel();
-            textBox8 = new TextBox();
+            txbDisplay_Name = new TextBox();
             label11 = new Label();
             panel24 = new Panel();
-            textBox9 = new TextBox();
+            txbUerName = new TextBox();
             label12 = new Label();
             panel25 = new Panel();
             dtgvListUser = new DataGridView();
@@ -122,6 +119,9 @@
             button16 = new Button();
             btnAdd_Account = new Button();
             toolTipResetPassword = new ToolTip(components);
+            panel27 = new Panel();
+            txbId = new TextBox();
+            label13 = new Label();
             tabControl1.SuspendLayout();
             tabDoanhThu.SuspendLayout();
             panel1.SuspendLayout();
@@ -153,13 +153,13 @@
             panel19.SuspendLayout();
             tabTaiKhoan.SuspendLayout();
             panel21.SuspendLayout();
-            panel27.SuspendLayout();
             panel22.SuspendLayout();
             panel23.SuspendLayout();
             panel24.SuspendLayout();
             panel25.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvListUser).BeginInit();
             panel26.SuspendLayout();
+            panel27.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl1
@@ -813,58 +813,31 @@
             panel21.Size = new Size(329, 360);
             panel21.TabIndex = 12;
             // 
-            // panel27
-            // 
-            panel27.Controls.Add(txbPassword);
-            panel27.Controls.Add(label13);
-            panel27.Location = new Point(3, 115);
-            panel27.Name = "panel27";
-            panel27.Size = new Size(323, 50);
-            panel27.TabIndex = 4;
-            // 
-            // txbPassword
-            // 
-            txbPassword.Location = new Point(168, 14);
-            txbPassword.Name = "txbPassword";
-            txbPassword.Size = new Size(142, 27);
-            txbPassword.TabIndex = 1;
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label13.Location = new Point(10, 17);
-            label13.Name = "label13";
-            label13.Size = new Size(104, 24);
-            label13.TabIndex = 0;
-            label13.Text = "Mật khẩu:";
-            // 
             // btnReset_PassWord
             // 
-            btnReset_PassWord.Location = new Point(236, 229);
+            btnReset_PassWord.Location = new Point(211, 228);
             btnReset_PassWord.Name = "btnReset_PassWord";
-            btnReset_PassWord.Size = new Size(90, 61);
+            btnReset_PassWord.Size = new Size(115, 61);
             btnReset_PassWord.TabIndex = 3;
             btnReset_PassWord.Text = "Đặt lại mật khẩu";
             btnReset_PassWord.UseVisualStyleBackColor = true;
-            btnReset_PassWord.Click += button18_Click;
             // 
             // panel22
             // 
-            panel22.Controls.Add(comboBox3);
+            panel22.Controls.Add(cbbAccount_Type);
             panel22.Controls.Add(label10);
-            panel22.Location = new Point(3, 173);
+            panel22.Location = new Point(6, 172);
             panel22.Name = "panel22";
             panel22.Size = new Size(323, 50);
             panel22.TabIndex = 2;
             // 
-            // comboBox3
+            // cbbAccount_Type
             // 
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new Point(164, 13);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(156, 28);
-            comboBox3.TabIndex = 1;
+            cbbAccount_Type.FormattingEnabled = true;
+            cbbAccount_Type.Location = new Point(164, 13);
+            cbbAccount_Type.Name = "cbbAccount_Type";
+            cbbAccount_Type.Size = new Size(156, 28);
+            cbbAccount_Type.TabIndex = 1;
             // 
             // label10
             // 
@@ -878,19 +851,20 @@
             // 
             // panel23
             // 
-            panel23.Controls.Add(textBox8);
+            panel23.Controls.Add(txbDisplay_Name);
             panel23.Controls.Add(label11);
-            panel23.Location = new Point(3, 59);
+            panel23.Location = new Point(6, 116);
             panel23.Name = "panel23";
             panel23.Size = new Size(323, 50);
             panel23.TabIndex = 1;
             // 
-            // textBox8
+            // txbDisplay_Name
             // 
-            textBox8.Location = new Point(168, 14);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(142, 27);
-            textBox8.TabIndex = 1;
+            txbDisplay_Name.Location = new Point(164, 14);
+            txbDisplay_Name.Name = "txbDisplay_Name";
+            txbDisplay_Name.ReadOnly = true;
+            txbDisplay_Name.Size = new Size(156, 27);
+            txbDisplay_Name.TabIndex = 1;
             // 
             // label11
             // 
@@ -904,20 +878,20 @@
             // 
             // panel24
             // 
-            panel24.Controls.Add(textBox9);
+            panel24.Controls.Add(txbUerName);
             panel24.Controls.Add(label12);
-            panel24.Location = new Point(3, 3);
+            panel24.Location = new Point(6, 60);
             panel24.Name = "panel24";
             panel24.Size = new Size(323, 50);
             panel24.TabIndex = 0;
             // 
-            // textBox9
+            // txbUerName
             // 
-            textBox9.Location = new Point(154, 14);
-            textBox9.Name = "textBox9";
-            textBox9.ReadOnly = true;
-            textBox9.Size = new Size(156, 27);
-            textBox9.TabIndex = 1;
+            txbUerName.Location = new Point(162, 14);
+            txbUerName.Name = "txbUerName";
+            txbUerName.ReadOnly = true;
+            txbUerName.Size = new Size(158, 27);
+            txbUerName.TabIndex = 1;
             // 
             // label12
             // 
@@ -946,6 +920,7 @@
             dtgvListUser.RowTemplate.Height = 29;
             dtgvListUser.Size = new Size(438, 354);
             dtgvListUser.TabIndex = 0;
+            dtgvListUser.CellClick += dtgvListUser_CellClick;
             // 
             // panel26
             // 
@@ -994,6 +969,33 @@
             btnAdd_Account.Text = "Thêm";
             btnAdd_Account.UseVisualStyleBackColor = true;
             btnAdd_Account.Click += btnAdd_Account_Click;
+            // 
+            // panel27
+            // 
+            panel27.Controls.Add(txbId);
+            panel27.Controls.Add(label13);
+            panel27.Location = new Point(6, 4);
+            panel27.Name = "panel27";
+            panel27.Size = new Size(323, 50);
+            panel27.TabIndex = 4;
+            // 
+            // txbId
+            // 
+            txbId.Location = new Point(162, 14);
+            txbId.Name = "txbId";
+            txbId.ReadOnly = true;
+            txbId.Size = new Size(158, 27);
+            txbId.TabIndex = 1;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label13.Location = new Point(10, 17);
+            label13.Name = "label13";
+            label13.Size = new Size(34, 24);
+            label13.TabIndex = 0;
+            label13.Text = "Id:";
             // 
             // fAdmin
             // 
@@ -1045,8 +1047,6 @@
             panel19.ResumeLayout(false);
             tabTaiKhoan.ResumeLayout(false);
             panel21.ResumeLayout(false);
-            panel27.ResumeLayout(false);
-            panel27.PerformLayout();
             panel22.ResumeLayout(false);
             panel22.PerformLayout();
             panel23.ResumeLayout(false);
@@ -1056,6 +1056,8 @@
             panel25.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dtgvListUser).EndInit();
             panel26.ResumeLayout(false);
+            panel27.ResumeLayout(false);
+            panel27.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -1128,13 +1130,13 @@
         private Panel panel21;
         private Button btnReset_PassWord;
         private Panel panel22;
-        private ComboBox comboBox3;
+        private ComboBox cbbAccount_Type;
         private Label label10;
         private Panel panel23;
-        private TextBox textBox8;
+        private TextBox txbDisplay_Name;
         private Label label11;
         private Panel panel24;
-        private TextBox textBox9;
+        private TextBox txbUerName;
         private Label label12;
         private Panel panel25;
         private DataGridView dtgvListUser;
@@ -1150,9 +1152,9 @@
         private ColumnHeader columnHeader4;
         private ColumnHeader columnHeader5;
         private ColumnHeader columnHeader6;
-        private Panel panel27;
-        private TextBox txbPassword;
-        private Label label13;
         private ToolTip toolTipResetPassword;
+        private Panel panel27;
+        private TextBox txbId;
+        private Label label13;
     }
 }

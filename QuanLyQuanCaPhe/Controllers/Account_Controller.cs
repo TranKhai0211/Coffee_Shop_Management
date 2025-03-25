@@ -63,5 +63,32 @@ namespace QuanLyQuanCaPhe.Controllers
                 throw;
             }
         }
+
+        public List<Account> List_All_User_Account()
+        {
+            List<Account> arrAccounts = new List<Account>();
+            DataTable dataTable = new DataTable();
+
+            try
+            {
+                dataTable = dataProvider.ExcuteReader("sp_sel_List_All_User_Account");
+
+                foreach (DataRow dr in dataTable.Rows)
+                {
+                    Account objAccount = Utility.Map_Row_To_Entity<Account>(dr);
+                    arrAccounts.Add(objAccount);
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                dataTable.Dispose();
+            }
+
+            return arrAccounts;
+        }
     }
 }

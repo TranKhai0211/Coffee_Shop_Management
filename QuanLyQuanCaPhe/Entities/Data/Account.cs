@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyQuanCaPhe.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -42,6 +43,21 @@ namespace QuanLyQuanCaPhe.Entities.Data
         {
             get { return typeId; }
             set { typeId = value; }
+        }
+
+        public string Type_Text
+        {
+            get
+            {
+                string strRet = "";
+                switch(Type_Id) 
+                {
+                    case (int) Account_Type.Admin: strRet = "Admin"; break;
+                    case (int) Account_Type.Employee: strRet = "Employee"; break;
+                }
+
+                return strRet;
+            }
         }
     }
 }

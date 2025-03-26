@@ -105,7 +105,7 @@
             txbId = new TextBox();
             label13 = new Label();
             btnAdd_Account = new Button();
-            button16 = new Button();
+            btnDelete = new Button();
             btnUpdate_Account = new Button();
             btnReset_PassWord = new Button();
             panel22 = new Panel();
@@ -120,7 +120,7 @@
             panel25 = new Panel();
             dtgvListUser = new DataGridView();
             panel26 = new Panel();
-            button14 = new Button();
+            btnReload = new Button();
             toolTipResetPassword = new ToolTip(components);
             tabControl1.SuspendLayout();
             tabDoanhThu.SuspendLayout();
@@ -174,6 +174,7 @@
             tabControl1.SelectedIndex = 0;
             tabControl1.Size = new Size(799, 574);
             tabControl1.TabIndex = 0;
+            tabControl1.SelectedIndexChanged += tabControl1_SelectedIndexChanged;
             // 
             // tabDoanhThu
             // 
@@ -805,7 +806,7 @@
             // 
             panel21.Controls.Add(panel27);
             panel21.Controls.Add(btnAdd_Account);
-            panel21.Controls.Add(button16);
+            panel21.Controls.Add(btnDelete);
             panel21.Controls.Add(btnUpdate_Account);
             panel21.Controls.Add(btnReset_PassWord);
             panel21.Controls.Add(panel22);
@@ -853,14 +854,15 @@
             btnAdd_Account.UseVisualStyleBackColor = true;
             btnAdd_Account.Click += btnAdd_Account_Click;
             // 
-            // button16
+            // btnDelete
             // 
-            button16.Location = new Point(6, 295);
-            button16.Name = "button16";
-            button16.Size = new Size(320, 61);
-            button16.TabIndex = 1;
-            button16.Text = "Xoá";
-            button16.UseVisualStyleBackColor = true;
+            btnDelete.Location = new Point(6, 295);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(320, 61);
+            btnDelete.TabIndex = 1;
+            btnDelete.Text = "Xoá";
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnUpdate_Account
             // 
@@ -984,20 +986,21 @@
             // 
             // panel26
             // 
-            panel26.Controls.Add(button14);
+            panel26.Controls.Add(btnReload);
             panel26.Location = new Point(6, 6);
             panel26.Name = "panel26";
             panel26.Size = new Size(444, 163);
             panel26.TabIndex = 10;
             // 
-            // button14
+            // btnReload
             // 
-            button14.Location = new Point(3, 101);
-            button14.Name = "button14";
-            button14.Size = new Size(438, 50);
-            button14.TabIndex = 3;
-            button14.Text = "Reload";
-            button14.UseVisualStyleBackColor = true;
+            btnReload.Location = new Point(3, 101);
+            btnReload.Name = "btnReload";
+            btnReload.Size = new Size(438, 50);
+            btnReload.TabIndex = 3;
+            btnReload.Text = "Reload";
+            btnReload.UseVisualStyleBackColor = true;
+            btnReload.Click += btnReload_Click;
             // 
             // fAdmin
             // 
@@ -1158,5 +1161,7 @@
         private Panel panel27;
         private TextBox txbId;
         private Label label13;
+        private Button btnDelete;
+        private Button btnReload;
     }
 }

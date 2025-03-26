@@ -102,5 +102,17 @@ namespace QuanLyQuanCaPhe.Controllers
                 throw;
             }
         }
+
+        public void Delete_Account_By_Id(int p_intId)
+        {
+            try
+            {
+                int intResult = dataProvider.ExcuteNonQuery("sp_del_Account_By_Id", p_intId);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

@@ -136,6 +136,40 @@ namespace QuanLyQuanCaPhe
             MessageBox.Show("Cập nhật thông tin thành công");
             Load_Account_List();
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            Account_Controller objAccount = new Account_Controller();
+
+            if (txbId.Text == "")
+            {
+                MessageBox.Show("Vui lòng chọn tài khoản để xoá.");
+            }
+            else
+            {
+                int intId = Convert.ToInt32(txbId.Text);
+                objAccount.Delete_Account_By_Id(intId);
+
+                txbId.Text = "";
+                txbDisplay_Name.Text = "";
+                txbUerName.Text = "";
+                cbbAccount_Type.Text = "";
+
+                MessageBox.Show("Xoá tài khoản thành công");
+                Load_Account_List();
+            }
+        }
+
+        private void btnReload_Click(object sender, EventArgs e)
+        {
+            Load_Account_List();
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selectedIndex = tabControl1.SelectedIndex;
+            string selectedTabName = tabControl1.TabPages[selectedIndex].Text;
+        }
         #endregion
 
 
@@ -191,6 +225,9 @@ namespace QuanLyQuanCaPhe
             MessageBox.Show("Đặt lại mật khẩu thành công !");
         }
         #endregion
+
+
+
 
         
     }
